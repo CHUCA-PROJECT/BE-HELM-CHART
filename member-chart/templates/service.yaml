@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: member-service
+  labels:
+    {{- include "member-service.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.member.port }}
+      targetPort: {{ (index .Values.member.ports 0).targetPort }}
+      protocol: TCP
+  selector:
+    {{- include "member-service.selectorLabels" . | nindent 4 }}
+    app: member

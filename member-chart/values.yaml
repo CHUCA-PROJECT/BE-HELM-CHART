@@ -1,0 +1,13 @@
+member:
+  enabled: true
+  replicas: 1
+  ports:
+    - name: member
+      port: 80
+      targetPort: 8081
+  image:
+    repository: contest29.kr.ncr.ntruss.com/member-service
+    tag: 6
+  loadBalancer:
+    enabled: true
+    port: 80
