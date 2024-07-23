@@ -3,34 +3,34 @@ entries:
   gateway-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-07-24T03:13:05.417838+09:00"
+    created: "2024-07-24T03:19:10.90292+09:00"
     description: A Helm chart for Kubernetes
     digest: 36ce0450ca209e2096387fb16a82a7360fee92e2a23400c65900e179a072430b
     name: gateway-chart
     type: application
     urls:
-    - https://github.com/CHUCA-PROJECT/BE-HELM-CHART/stable/gateway-chart-0.1.0.tgz
+    - https://chuca-project.github.io/BE-HELM-CHART/stable/gateway-chart-0.1.0.tgz
     version: 0.1.0
   jenkins-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-07-24T03:13:05.41818+09:00"
+    created: "2024-07-24T03:19:10.903511+09:00"
     description: A Helm chart for Kubernetes
     digest: f737a2f8bcda9da592a90eeb167102540b092fbe62d8660a2d8876934d4a5a2d
     name: jenkins-chart
     type: application
     urls:
-    - https://github.com/CHUCA-PROJECT/BE-HELM-CHART/stable/jenkins-chart-0.1.0.tgz
+    - https://chuca-project.github.io/BE-HELM-CHART/stable/jenkins-chart-0.1.0.tgz
     version: 0.1.0
   member-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-07-24T03:13:05.418388+09:00"
+    created: "2024-07-24T03:19:10.904718+09:00"
     description: A Helm chart for Kubernetes
     digest: fda7fd8207fc3314fe2f1b14b43225b6f8227583efab33336ea21583680fc61b
     name: member-chart
     type: application
     urls:
-    - https://github.com/CHUCA-PROJECT/BE-HELM-CHART/stable/member-chart-0.1.0.tgz
+    - https://chuca-project.github.io/BE-HELM-CHART/stable/member-chart-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-24T03:13:05.417357+09:00"
+generated: "2024-07-24T03:19:10.902052+09:00"
