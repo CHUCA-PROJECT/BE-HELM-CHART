@@ -1,0 +1,69 @@
+# values.yaml
+
+controller:
+  # Jenkins 컨트롤러 이미지 설정
+  image:
+    repository: jenkins/jenkins
+    tag: lts
+  # 서비스 타입 설정 (LoadBalancer 또는 ClusterIP 등)
+  service:
+    type: LoadBalancer
+  # Jenkins Pod의 보안 설정
+  securityContext:
+    fsGroup: 1000
+    runAsUser: 1000
+  # Init 컨테이너 설정 (Docker-in-Docker)
+  initContainers:
+    - name: docker-in-docker
+      image: docker:19.03-dind
+      securityContext:
+        privileged: true
+      volumeMounts:
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
+  # Jenkins Pod의 볼륨 설정
+  volumes:
+    - name: docker-socket
+      hostPath:
+        path: /var/run/docker.sock
+  volumeMounts:
+    - name: docker-socket
+      mountPath: /var/run/docker.sock
+  # Jenkins의 추가 컨테이너 설정 (Docker CLI)
+  agent:
+    containers:
+      - name: docker
+        image: docker:19.03
+        command:
+          - cat
+        tty: true
+        securityContext:
+          privileged: true
+        volumeMounts:
+          - name: docker-socket
+            mountPath: /var/run/docker.sock
+
+# 외부 스토리지 사용 설정 (옵션)
+# persistence:
+#   enabled: true
+#   storageClass: "default"
+#   accessModes:
+#     - ReadWriteOnce
+#   size: 10Gi
+
+# Ingress 설정 (옵션)
+# ingress:
+#   enabled: false
+#   hosts:
+#     - host: chart-example.local
+#       paths: 
+#         - /
+#   tls: [] 
+
+# Jenkins 플러그인 관리 (옵션)
+# controller:
+#   installPlugins:
+#     - git
+#     - workflow-aggregator
+#     - docker-workflow
+
